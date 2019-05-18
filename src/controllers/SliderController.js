@@ -32,8 +32,7 @@ export default class SliderController {
     this.startX = newEvent.pageX;
   }
 
-  onLeave(event) {
-    event.preventDefault();
+  onLeave() {
     this.deactivateSlider();
     if (!this.isDown) return;
     this.isDown = false;
@@ -47,8 +46,7 @@ export default class SliderController {
     if (this.offset <= 30) this.view.screenCount += 1;
   }
 
-  onUp(event) {
-    event.preventDefault();
+  onUp() {
     if (!this.isDown) return;
     this.deactivateSlider();
     this.isDown = false;
