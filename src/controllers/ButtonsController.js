@@ -8,6 +8,7 @@ export default class ButtonsController {
   }
 
   onClick(event) {
+    event.preventDefault();
     if (event.target.hasAttribute('data-id')) {
       this.view.screenCount += +event.target.getAttribute('data-id');
       this.view.moveSlider();
