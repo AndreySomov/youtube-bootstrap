@@ -1,0 +1,184 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+a, a:visited {
+  color: inherit;
+  text-decoration: none; }
+
+.hidden {
+  visibility: hidden; }
+
+body {
+  overflow-x: hidden;
+  background-color: #586472;
+  height: 100vh; }
+
+.activated-slider {
+  background-color: #49535e;
+  box-shadow: 0 0 30px black;
+  transition: .1s; }
+
+.deactivated-slider {
+  transition-property: box-shadow, background-color;
+  transition: .7s;
+  transition-delay: 1.5s;
+  cursor: default, auto;
+  background-color: none;
+  box-shadow: none; }
+
+.app {
+  width: 100vw; }
+  .app .form {
+    position: relative;
+    width: 30vw;
+    margin: 0 auto;
+    padding-top: 20px; }
+    .app .form .input {
+      width: 100%;
+      height: 42px;
+      background: #F9F0DA;
+      padding-left: 15px;
+      border: none;
+      outline: none;
+      border-radius: 3px;
+      font-size: 18px; }
+      .app .form .input::-ms-clear {
+        display: none; }
+  .app .slider {
+    user-select: none;
+    display: flex;
+    align-items: center;
+    height: 60vh;
+    list-style: none;
+    display: flex;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    margin-top: 2vh;
+    cursor: pointer; }
+    .app .slider .card-container {
+      width: 25vw;
+      display: flex;
+      justify-content: center;
+      height: 55vh; }
+      .app .slider .card-container .card {
+        width: 400px;
+        height: 100%;
+        box-shadow: 0 0 20px black;
+        border-radius: 7px;
+        overflow: hidden;
+        background: white; }
+        .app .slider .card-container .card:hover {
+          box-shadow: 0 0 35px #ff0000;
+          transition-duration: .2s; }
+        .app .slider .card-container .card img {
+          position: relative;
+          top: -5px;
+          margin: 0 12px 0 25px; }
+        .app .slider .card-container .card .card-head {
+          width: 100%;
+          height: 35%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-size: cover; }
+        .app .slider .card-container .card .title {
+          width: 100%;
+          font-size: 18px;
+          font-weight: bold;
+          color: white;
+          background: #49535eaa;
+          padding: 10px;
+          user-select: auto; }
+          .app .slider .card-container .card .title:hover {
+            cursor: pointer;
+            color: #ff0000;
+            transition-duration: .2s; }
+        .app .slider .card-container .card .card-info {
+          height: 40%;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+          font-size: 18px;
+          font-weight: bold; }
+          .app .slider .card-container .card .card-info .view-count,
+          .app .slider .card-container .card .card-info .like-count,
+          .app .slider .card-container .card .card-info .channel-title,
+          .app .slider .card-container .card .card-info .published-at {
+            display: flex;
+            justify-content: left; }
+        .app .slider .card-container .card .description {
+          height: 25%;
+          overflow: hidden;
+          padding: 10px;
+          font-size: 18px;
+          word-wrap: break-word; }
+  .app .button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    user-select: none; }
+    .app .button-container button {
+      user-select: none;
+      position: relative;
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      background: white;
+      margin: 0 5px;
+      font-size: 25px;
+      font-weight: bold;
+      color: #ff0000;
+      border: none;
+      outline: none;
+      cursor: pointer; }
+      .app .button-container button:hover .button-help {
+        opacity: 1; }
+      .app .button-container button .button-help {
+        position: absolute;
+        box-sizing: border-box;
+        width: 35px;
+        height: 35px;
+        bottom: 40px;
+        border-radius: 50%;
+        padding: 7px;
+        background: radial-gradient(#ff0000, #49535e 70%);
+        font-size: 20px;
+        color: white;
+        opacity: 0; }
+    .app .button-container .current-button {
+      background: #ff0000;
+      box-sizing: border-box;
+      border: 3px solid white;
+      font-size: 18px;
+      color: white; }
+
+@media screen and (min-width: 1350px) and (max-width: 1800px) {
+  .app .slider li .card-container {
+    width: 33vw; } }
+
+@media screen and (min-width: 950px) and (max-width: 1350px) {
+  .app .slider li .card-container {
+    width: 50vw; } }
+
+@media screen and (max-width: 950px) {
+  .app .form {
+    width: 80vw; }
+  .app .slider {
+    height: 78vh;
+    margin-top: 1vh; }
+    .app .slider .card-container {
+      height: 70vh;
+      width: 100vw; }
+      .app .slider .card-container .card {
+        width: 300px; }
+        .app .slider .card-container .card .description {
+          font-size: 14px; }
+  .app .button-container {
+    margin-top: 16px; }
+    .app .button-container .button-help {
+      display: none; } }
+
+
+/*# sourceMappingURL=main.css.map*/
