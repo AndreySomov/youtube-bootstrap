@@ -3,10 +3,10 @@ export default class CardView {
     this.element = document.createElement('li');
     this.element.innerHTML = `<div class='card-container'>
                             <div class='card'>
-                            <div class='card-head' style = 'background-image: url(${item.imgUrl});'>
+                            <div class='card-head' style='background-image: url(${item.imgUrl});'>
                                 <div class='title'>
                                 <a href='https://www.youtube.com/watch?v=${item.id}' target='_blank'>
-                                    <p>${item.title}</p>
+                                    <p class='url'>${item.title}</p>
                                 </a>
                                 </div>
                             </div>

@@ -12,11 +12,11 @@ a, a:visited {
 
 body {
   overflow-x: hidden;
-  background-color: #586472;
+  background-color: #49535e;
   height: 100vh; }
 
 .activated-slider {
-  background-color: #49535e;
+  background-color: #38424c;
   box-shadow: 0 0 30px black;
   transition: .1s; }
 
@@ -29,7 +29,8 @@ body {
   box-shadow: none; }
 
 .app {
-  width: 100vw; }
+  width: 100vw;
+  user-select: none; }
   .app .form {
     position: relative;
     width: 30vw;
@@ -47,7 +48,6 @@ body {
       .app .form .input::-ms-clear {
         display: none; }
   .app .slider {
-    user-select: none;
     display: flex;
     align-items: center;
     height: 60vh;
@@ -63,7 +63,7 @@ body {
       justify-content: center;
       height: 55vh; }
       .app .slider .card-container .card {
-        width: 400px;
+        width: 360px;
         height: 100%;
         box-shadow: 0 0 20px black;
         border-radius: 7px;

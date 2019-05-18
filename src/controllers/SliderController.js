@@ -8,14 +8,14 @@ export default class SliderController {
     this.scrollLeft = 0;
     this.offset = 0;
 
-    this.slider.onmousedown = this.onDown.bind(this);
-    this.slider.onmouseleave = this.onLeave.bind(this);
-    this.slider.onmouseup = this.onUp.bind(this);
-    this.slider.onmousemove = this.onMove.bind(this);
-    this.slider.ontouchstart = this.onDown.bind(this);
-    this.slider.ontouchend = this.onUp.bind(this);
-    this.slider.ontouchcancel = this.onLeave.bind(this);
-    this.slider.ontouchmove = this.onMove.bind(this);
+    this.slider.addEventListener('mousedown', this.onDown.bind(this), false);
+    this.slider.addEventListener('mouseleave', this.onLeave.bind(this), false);
+    this.slider.addEventListener('mouseup', this.onUp.bind(this), false);
+    this.slider.addEventListener('mousemove', this.onMove.bind(this), false);
+    this.slider.addEventListener('touchstart', this.onDown.bind(this), false);
+    this.slider.addEventListener('touchend', this.onUp.bind(this), false);
+    this.slider.addEventListener('touchcancel', this.onLeave.bind(this), false);
+    this.slider.addEventListener('touchmove', this.onMove.bind(this), false);
   }
 
   static unify(event) {
@@ -23,8 +23,7 @@ export default class SliderController {
   }
 
   onDown(event) {
-    event.stopPropagation();
-    if (!this.context.sliderStatus) return;
+    if (!this.context.sliderStatus || event.target.classList.contains('url')) return;
     this.activateSlider();
     const newEvent = SliderController.unify(event);
     this.isDown = true;
@@ -53,15 +52,14 @@ export default class SliderController {
     this.changeScreenCount();
     this.view.moveSlider();
     this.context.checkSlider();
+    this.offset = 0;
   }
 
   onMove(event) {
-    event.preventDefault();
     if (!this.isDown) return;
-
     const newEvent = SliderController.unify(event);
     const x = newEvent.pageX - this.slider.offsetLeft;
-    const walk = (x - this.startX);
+    const walk = x - this.startX;
     this.offset = walk;
     this.slider.scrollLeft = this.scrollLeft - walk;
   }
