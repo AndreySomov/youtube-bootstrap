@@ -23,7 +23,6 @@ export default class SliderController {
   }
 
   onDown(event) {
-    event.preventDefault();
     if (!this.context.sliderStatus) return;
     this.activateSlider();
     const newEvent = SliderController.unify(event);
@@ -68,16 +67,16 @@ export default class SliderController {
 
   activateSlider() {
     const screenWidth = document.documentElement.clientWidth;
-    if (screenWidth < 790) return; // return
-    this.slider.classList.remove('deactivated-slider'); // field
-    this.slider.classList.add('activated-slider'); // field
+    if (screenWidth < 790) return;
+    this.slider.classList.remove('deactivated-slider');
+    this.slider.classList.add('activated-slider');
   }
 
   deactivateSlider() {
     const screenWidth = document.documentElement.clientWidth;
-    if (screenWidth < 790) return; // return
-    this.slider.classList.add('deactivated-slider'); // field
-    this.slider.classList.remove('activated-slider'); // field
+    if (screenWidth < 790) return;
+    this.slider.classList.add('deactivated-slider');
+    this.slider.classList.remove('activated-slider');
   }
 
   destroySlider() {
