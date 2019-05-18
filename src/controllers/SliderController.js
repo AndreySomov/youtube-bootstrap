@@ -23,6 +23,7 @@ export default class SliderController {
   }
 
   onDown(event) {
+    event.stopPropagation();
     if (!this.context.sliderStatus) return;
     this.activateSlider();
     const newEvent = SliderController.unify(event);
