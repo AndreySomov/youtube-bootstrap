@@ -229,13 +229,19 @@ body{
     }
 
     .slider{
-      height: 72vh;
+      height: 65vh;
       margin-top: 1vh;
       .card-container{
-        height: 65vh;
+        height: 60vh;
         width: 100vw;
         .card{
           width: 300px;
+
+          &:hover{
+            box-shadow: none;
+            transition-duration: none;
+          }
+
           .description{
             font-size: 14px;
           }

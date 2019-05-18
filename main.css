@@ -166,13 +166,16 @@ body {
   .app .form {
     width: 80vw; }
   .app .slider {
-    height: 72vh;
+    height: 65vh;
     margin-top: 1vh; }
     .app .slider .card-container {
-      height: 65vh;
+      height: 60vh;
       width: 100vw; }
       .app .slider .card-container .card {
         width: 300px; }
+        .app .slider .card-container .card:hover {
+          box-shadow: none;
+          transition-duration: none; }
         .app .slider .card-container .card .description {
           font-size: 14px; }
   .app .button-container {
