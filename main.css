@@ -166,17 +166,17 @@ body {
   .app .form {
     width: 80vw; }
   .app .slider {
-    height: 78vh;
+    height: 72vh;
     margin-top: 1vh; }
     .app .slider .card-container {
-      height: 70vh;
+      height: 65vh;
       width: 100vw; }
       .app .slider .card-container .card {
         width: 300px; }
         .app .slider .card-container .card .description {
           font-size: 14px; }
   .app .button-container {
-    margin-top: 16px; }
+    margin-top: 10px; }
     .app .button-container .button-help {
       display: none; } }
 
