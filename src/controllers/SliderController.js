@@ -43,7 +43,7 @@ export default class SliderController {
   changeScreenCount() {
     if (this.offset > 30) this.view.screenCount += this.view.screenCount === 0 ? 0 : -1;
 
-    if (this.offset <= 30) this.view.screenCount += 1;
+    if (this.offset <= -30) this.view.screenCount += 1;
   }
 
   onUp() {

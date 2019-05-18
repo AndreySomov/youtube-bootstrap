@@ -26,7 +26,7 @@ export default class AppView {
 
   moveSlider() {
     const screenWidth = document.documentElement.clientWidth;
-    this.slider.scrollTo({
+    this.slider.scroll({
       left: screenWidth * this.screenCount,
       behavior: 'smooth',
     });
