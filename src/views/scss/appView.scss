@@ -34,6 +34,12 @@ body{
 .app{
   width: 100vw;
   user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select:none;
+  -khtml-user-select: none;
+
   .form {
     position: relative;
     width: 30vw;
@@ -149,10 +155,8 @@ body{
     display: flex;
     justify-content: center;
     margin-top: 50px;
-    user-select: none;
 
     button{
-      user-select: none;
       position: relative;
       width: 35px;
       height: 35px;

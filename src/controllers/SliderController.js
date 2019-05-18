@@ -8,14 +8,14 @@ export default class SliderController {
     this.scrollLeft = 0;
     this.offset = 0;
 
-    this.slider.addEventListener('mousedown', this.onDown.bind(this), false);
-    this.slider.addEventListener('mouseleave', this.onLeave.bind(this), false);
-    this.slider.addEventListener('mouseup', this.onUp.bind(this), false);
-    this.slider.addEventListener('mousemove', this.onMove.bind(this), false);
-    this.slider.addEventListener('touchstart', this.onDown.bind(this), false);
-    this.slider.addEventListener('touchend', this.onUp.bind(this), false);
-    this.slider.addEventListener('touchcancel', this.onLeave.bind(this), false);
-    this.slider.addEventListener('touchmove', this.onMove.bind(this), false);
+    this.slider.onmousedown = this.onDown.bind(this);
+    this.slider.onmouseleave = this.onLeave.bind(this);
+    this.slider.onmouseup = this.onUp.bind(this);
+    this.slider.onmousemove = this.onMove.bind(this);
+    this.slider.ontouchstart = this.onDown.bind(this);
+    this.slider.ontouchend = this.onTouchend.bind(this);
+    this.slider.ontouchcancel = this.onLeave.bind(this);
+    this.slider.ontouchmove = this.onMove.bind(this);
   }
 
   static unify(event) {
@@ -23,12 +23,21 @@ export default class SliderController {
   }
 
   onDown(event) {
-    if (!this.context.sliderStatus || event.target.classList.contains('url')) return;
+    if (!this.context.sliderStatus) return;
     this.activateSlider();
     const newEvent = SliderController.unify(event);
     this.isDown = true;
     this.scrollLeft = this.slider.scrollLeft;
     this.startX = newEvent.pageX;
+  }
+
+  onTouchend() {
+    if (!this.isDown) return;
+    this.deactivateSlider();
+    this.isDown = false;
+    this.changeScreenCount();
+    this.view.moveSlider();
+    this.context.checkSlider();
   }
 
   onLeave() {
@@ -37,6 +46,7 @@ export default class SliderController {
     this.isDown = false;
     this.view.moveSlider();
     this.context.checkSlider();
+    this.offset = 0;
   }
 
   changeScreenCount() {

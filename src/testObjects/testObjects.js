@@ -33,7 +33,7 @@ const clipInfo = {
 
 const transformItem = {
   title: 'The Red Fire Truck with The Police Car 2 | Emergency Cars Cartoon for kids',
-  description: 'Watch more full episodes of car cartoons at - https://seeziskids.com/en/car-stories-non-stop/ \r\n\r\nShare this v...',
+  description: 'Watch more full episodes of car cartoons at - https://seeziskids.com/en/car-stories-non-stop/ \r\n\r\nSh...',
   viewCount: '5303776',
   dislikeCount: '98563',
   likeCount: '768951',
