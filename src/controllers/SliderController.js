@@ -12,32 +12,25 @@ export default class SliderController {
     this.slider.onmouseleave = this.onLeave.bind(this);
     this.slider.onmouseup = this.onUp.bind(this);
     this.slider.onmousemove = this.onMove.bind(this);
+
     this.slider.ontouchstart = this.onDown.bind(this);
-    this.slider.ontouchend = this.onTouchend.bind(this);
+    this.slider.ontouchend = this.onUp.bind(this);
     this.slider.ontouchcancel = this.onLeave.bind(this);
     this.slider.ontouchmove = this.onMove.bind(this);
   }
 
   static unify(event) {
-    return event.targetTouches ? event.targetTouches[0] : event;
+    return event.changedTouches ? event.changedTouches[0] : event;
   }
 
   onDown(event) {
+    event.preventDefault();
     if (!this.context.sliderStatus) return;
     this.activateSlider();
     const newEvent = SliderController.unify(event);
     this.isDown = true;
     this.scrollLeft = this.slider.scrollLeft;
     this.startX = newEvent.pageX;
-  }
-
-  onTouchend() {
-    if (!this.isDown) return;
-    this.deactivateSlider();
-    this.isDown = false;
-    this.changeScreenCount();
-    this.view.moveSlider();
-    this.context.checkSlider();
   }
 
   onLeave() {
@@ -51,12 +44,17 @@ export default class SliderController {
 
   changeScreenCount() {
     if (this.offset > 30) this.view.screenCount += this.view.screenCount === 0 ? 0 : -1;
-
     if (this.offset <= -30) this.view.screenCount += 1;
   }
 
-  onUp() {
+  onUp(event) {
+    event.preventDefault();
     if (!this.isDown) return;
+    if (event.target.hasAttribute('data-href')) {
+      window.open(event.target.getAttribute('data-href'));
+      return;
+    }
+
     this.deactivateSlider();
     this.isDown = false;
     this.changeScreenCount();
@@ -66,6 +64,7 @@ export default class SliderController {
   }
 
   onMove(event) {
+    event.preventDefault();
     if (!this.isDown) return;
     const newEvent = SliderController.unify(event);
     const x = newEvent.pageX - this.slider.offsetLeft;

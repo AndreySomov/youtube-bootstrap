@@ -5,9 +5,7 @@ export default class CardView {
                             <div class='card'>
                             <div class='card-head' style='background-image: url(${item.imgUrl});'>
                                 <div class='title'>
-                                <a href='https://www.youtube.com/watch?v=${item.id}' target='_blank'>
-                                    <p class='url'>${item.title}</p>
-                                </a>
+                                  <p data-href='https://www.youtube.com/watch?v=${item.id}'>${item.title}</p>
                                 </div>
                             </div>
                             <div class='card-info'>

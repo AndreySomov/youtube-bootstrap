@@ -62,7 +62,7 @@ const context = {
 };
 
 const event = {
-  targetTouches: [1, 2, 3],
+  changedTouches: [1, 2, 3],
   pageX: 100,
 };
 
