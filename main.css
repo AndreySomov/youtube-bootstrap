@@ -45,8 +45,6 @@ body {
       outline: none;
       border-radius: 3px;
       font-size: 18px; }
-      .app .form .input::-ms-clear {
-        display: none; }
   .app .slider {
     display: flex;
     align-items: center;
@@ -96,11 +94,12 @@ body {
             color: #ff0000;
             transition-duration: .2s; }
         .app .slider .card-container .card .card-info {
-          height: 40%;
+          height: 45%;
           display: flex;
           flex-direction: column;
           justify-content: space-around;
           font-size: 18px;
+          padding: 10px 0;
           font-weight: bold; }
           .app .slider .card-container .card .card-info .view-count,
           .app .slider .card-container .card .card-info .like-count,
@@ -109,7 +108,7 @@ body {
             display: flex;
             justify-content: left; }
         .app .slider .card-container .card .description {
-          height: 25%;
+          height: 20%;
           overflow: hidden;
           padding: 10px;
           font-size: 18px;

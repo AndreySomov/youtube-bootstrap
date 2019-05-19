@@ -50,9 +50,6 @@ body{
       outline: none;
       border-radius: 3px;
       font-size: 18px;
-      &::-ms-clear {
-        display: none;
-      }
     }
   }
 
@@ -118,11 +115,12 @@ body{
         }
 
         .card-info{
-          height: 40%;
+          height: 45%;
           display: flex;
           flex-direction: column;
           justify-content: space-around;
           font-size: 18px;
+          padding: 10px 0;
           font-weight: bold;
 
           .view-count,
@@ -136,7 +134,7 @@ body{
         }
 
         .description{
-          height: 25%;
+          height: 20%;
           overflow: hidden;
           padding: 10px;
           font-size: 18px;

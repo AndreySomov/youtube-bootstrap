@@ -22,11 +22,13 @@ describe('#onClick', () => {
     const target = document.createElement('button');
     target.setAttribute('data-id', '1');
     const event = { target };
+    event.preventDefault = jest.fn();
     buttonsController.onClick(event);
 
     expect(buttonsController.context).toEqual(data.context);
     expect(buttonsController.view.moveSlider).toHaveBeenCalledTimes(1);
     expect(buttonsController.context.checkSlider).toHaveBeenCalledTimes(1);
+    expect(event.preventDefault).toHaveBeenCalledTimes(1);
   });
 
   it('should not work when event without data-attribute', () => {
@@ -35,11 +37,14 @@ describe('#onClick', () => {
 
     const target = document.createElement('button');
     const event = { target };
+    event.preventDefault = jest.fn();
+
     buttonsController.onClick(event);
 
     expect(buttonsController.context).toEqual(data.context);
     expect(buttonsController.view.moveSlider).toHaveBeenCalledTimes(0);
     expect(buttonsController.context.checkSlider).toHaveBeenCalledTimes(0);
+    expect(event.preventDefault).toHaveBeenCalledTimes(1);
   });
 });
 

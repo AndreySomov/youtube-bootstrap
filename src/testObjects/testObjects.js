@@ -64,6 +64,9 @@ const context = {
 const event = {
   changedTouches: [1, 2, 3],
   pageX: 100,
+  preventDefault() {
+    return true;
+  },
 };
 
 const emptyEvent = {

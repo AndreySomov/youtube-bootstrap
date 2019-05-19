@@ -34,14 +34,37 @@ describe('SliderController', () => {
     });
   });
 
+  describe('#onUp', () => {
+    it('if sliderController.isDown is false to do nothing', () => {
+      const sliderController = new SliderController(data.context);
+      sliderController.isDown = true;
+
+      sliderController.deactivateSlider = jest.fn();
+      sliderController.isDown = false;
+      sliderController.view.moveSlider = jest.fn();
+      sliderController.context.checkSlider = jest.fn();
+
+      data.event.preventDefault = jest.fn();
+
+      sliderController.onUp(data.event);
+
+      expect(data.event.preventDefault).toHaveBeenCalledTimes(1);
+      expect(sliderController.deactivateSlider).toHaveBeenCalledTimes(0);
+      expect(sliderController.view.moveSlider).toHaveBeenCalledTimes(0);
+      expect(sliderController.context.checkSlider).toHaveBeenCalledTimes(0);
+    });
+  });
+
   describe('#onDown', () => {
     it('if context.sliderStatus is false to do nothing', () => {
       const sliderController = new SliderController(data.context);
 
       sliderController.activateSlider = jest.fn();
       sliderController.context.sliderStatus = false;
-      sliderController.onDown();
+      data.event.preventDefault = jest.fn();
 
+      sliderController.onDown(data.event);
+      expect(data.event.preventDefault).toHaveBeenCalledTimes(1);
       expect(sliderController.activateSlider).toHaveBeenCalledTimes(0);
     });
 
@@ -50,9 +73,10 @@ describe('SliderController', () => {
 
       sliderController.context.sliderStatus = true;
       SliderController.unify = jest.fn(() => data.emptyEvent);
+      data.event.preventDefault = jest.fn();
       sliderController.activateSlider = jest.fn();
 
-      sliderController.onDown();
+      sliderController.onDown(data.event);
 
       expect(sliderController.isDown).toEqual(true);
       expect(sliderController.scrollLeft).toEqual(0);
@@ -64,10 +88,12 @@ describe('SliderController', () => {
       sliderController.context.sliderStatus = true;
       SliderController.unify = jest.fn(() => data.emptyEvent);
       sliderController.activateSlider = jest.fn();
+      data.event.preventDefault = jest.fn();
 
-      sliderController.onDown();
+      sliderController.onDown(data.event);
 
       expect(SliderController.unify).toHaveBeenCalledTimes(1);
+      expect(data.event.preventDefault).toHaveBeenCalledTimes(1);
       expect(sliderController.activateSlider).toHaveBeenCalledTimes(1);
     });
   });
@@ -78,8 +104,10 @@ describe('SliderController', () => {
       sliderController.isDown = true;
 
       sliderController.activateSlider = jest.fn();
+      sliderController.view.moveSlider = jest.fn();
+      sliderController.context.checkSlider = jest.fn();
       sliderController.context.sliderStatus = false;
-      sliderController.onDown();
+      sliderController.onLeave();
 
       expect(sliderController.activateSlider).toHaveBeenCalledTimes(0);
     });
