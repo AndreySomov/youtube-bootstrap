@@ -104,7 +104,7 @@ body{
           font-weight: bold;
           color: white;
           background: #49535eaa;
-          padding: 10px;
+          padding: 5px 10px;
           user-select: auto;
 
           &:hover{
@@ -193,7 +193,7 @@ body{
   }
 }
 
-@media screen and (min-width: 1350px) and (max-width: 1800px){
+@media screen and (min-width: 1280px) and (max-width: 1690px){
   .app{
     .slider{
       li{
@@ -205,7 +205,7 @@ body{
   }
 }
 
-@media screen and (min-width: 950px) and (max-width: 1350px){
+@media screen and (min-width: 870px) and (max-width: 1280px){
   .app {
     .slider{
       li{
@@ -217,7 +217,7 @@ body{
   }
 }
 
-@media screen and (max-width: 950px){
+@media screen and (max-width: 870px){
   .app{
 
     .form{
@@ -238,8 +238,12 @@ body{
             transition-duration: none;
           }
 
+          .card-info{
+            font-size: 16px;
+          }
+
           .description{
-            font-size: 14px;
+            font-size: 15px;
           }
         }
       }
